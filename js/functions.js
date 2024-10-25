@@ -3,9 +3,9 @@ const isWithinMaxLength = (str, maxLength) => str.length <= maxLength;
 
 // Проверяет, является ли строка палиндромом, игнорируя пробелы и регистр символов.
 const isPalindrome = (str) => {
-  const normalizedString = str.replaceAll(" ", "").toLowerCase();
+  const normalizedString = str.replaceAll(' ', '').toLowerCase();
 
-  let reversedString = "";
+  let reversedString = '';
   for (let i = normalizedString.length - 1; i >= 0; i--) {
     reversedString += normalizedString[i];
   }
@@ -22,7 +22,7 @@ const canConvertToNumber = (str) => !isNaN(Number(str));
 
 // Извлекает число из цифр в троке, возвращает NaN если в строке нет цифр.
 const getNumberFromString = (str) => {
-  const normalizedString = str.toString().replaceAll(" ", "");
+  const normalizedString = str.toString().replaceAll(' ', '');
 
   // Создание массива из нормализированной строки.
   const arrFromString = [...normalizedString];
@@ -30,8 +30,12 @@ const getNumberFromString = (str) => {
   // Фильтрация массива на числа, соединение в строку и преобразование в число с помощью +.
   const result = +arrFromString
     .filter((element) => canConvertToNumber(element))
-    .join("");
+    .join('');
 
   // Проверка на пустой результат, возвращает NaN елсли в троке цифры не встречались.
   return result !== 0 ? result : NaN;
 };
+
+isWithinMaxLength('строка', 8);
+isPalindrome ('Лёша на полке клопа нашёл ');
+getNumberFromString ('1 кефир, 0.5 батона');
